@@ -1,0 +1,16 @@
+name: Lint, Test, and Build
+
+on:
+  push
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Lint
+      run: eslint --ext .jsx --fix src
+    - name: test
+      run: vitest run
+    - name: build
+      run: vite build
